@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 		}
 		// 匹配密码
 		if (null != user) {
-			if (!user.getUserPassword().equals(userPassword))
+			if (!user.getUser_password().equals(userPassword))
 				user = null;
 		}
 		return user;
