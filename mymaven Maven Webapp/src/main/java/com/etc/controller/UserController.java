@@ -34,7 +34,7 @@ public class UserController {
 			// 将用户信息保存到session
 			session.setAttribute(Constants.USER_SESSION, user);
 			// 跳转到管理后台
-			if (user.getUserName().equals("admin")) {
+			if (user.getUser_name().equals("admin")) {
 				return "redirect:/sys/user/main.html";//管理员进入后台
 			}else{
 				return "home/index";//普通用户进入前台

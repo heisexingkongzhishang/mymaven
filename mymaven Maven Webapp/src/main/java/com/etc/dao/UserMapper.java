@@ -51,7 +51,7 @@ public interface UserMapper {
 	 * @return
 	 * @throws Exception
 	 */
-	public int getUserCount(@Param("userName") String userName,
+	public int getUserCount(@Param("user_name") String user_name,
 			@Param("userRole") Integer userRole) throws Exception;
 
 	/**
