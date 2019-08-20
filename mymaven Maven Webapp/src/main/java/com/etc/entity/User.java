@@ -4,145 +4,67 @@ import java.util.Date;
 
 /** 用户信息实体类 */
 public class User {
-	private Integer id; // id
-	private String userCode; // 用户编码
-	private String userName; // 用户名称
-	private String userPassword; // 用户密码
-	private Integer gender; // 性别
-	private Date birthday; // 出生日期
-	private String phone; // 电话
-	private String address; // 地址
-	private Integer userRole; // 用户角色
-	private Integer createdBy; // 创建者
-	private Date creationDate; // 创建时间
-	private Integer modifyBy; // 更新者
-	private Date modifyDate; // 更新时间
-
+	private Integer user_id; // id
+	private String user_phone;// 用户电话
+	private String user_name; // 用户名称
+	private String user_password; // 用户密码
+	private Integer user_sex; // 性别
+	private String user_picture; //头像图片
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+	public String getUser_phone() {
+		return user_phone;
+	}
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public String getUser_password() {
+		return user_password;
+	}
+	public void setUser_password(String user_password) {
+		this.user_password = user_password;
+	}
+	public Integer getUser_sex() {
+		return user_sex;
+	}
+	public void setUser_sex(Integer user_sex) {
+		this.user_sex = user_sex;
+	}
+	public String getUser_picture() {
+		return user_picture;
+	}
+	public void setUser_picture(String user_picture) {
+		this.user_picture = user_picture;
+	}
+	public User(Integer user_id, String user_phone, String user_name, String user_password, Integer user_sex,
+			String user_picture) {
+		super();
+		this.user_id = user_id;
+		this.user_phone = user_phone;
+		this.user_name = user_name;
+		this.user_password = user_password;
+		this.user_sex = user_sex;
+		this.user_picture = user_picture;
+	}
 	public User() {
 		super();
 	}
-
-	public User(Integer id, String userCode, String userName, String userPassword, Integer gender, Date birthday,
-			String phone, String address, Integer userRole, Integer createdBy, Date creationDate, Integer modifyBy,
-			Date modifyDate) {
-		super();
-		this.id = id;
-		this.userCode = userCode;
-		this.userName = userName;
-		this.userPassword = userPassword;
-		this.gender = gender;
-		this.birthday = birthday;
-		this.phone = phone;
-		this.address = address;
-		this.userRole = userRole;
-		this.createdBy = createdBy;
-		this.creationDate = creationDate;
-		this.modifyBy = modifyBy;
-		this.modifyDate = modifyDate;
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", user_phone=" + user_phone + ", user_name=" + user_name
+				+ ", user_password=" + user_password + ", user_sex=" + user_sex + ", user_picture=" + user_picture
+				+ "]";
 	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getUserCode() {
-		return userCode;
-	}
-
-	public void setUserCode(String userCode) {
-		this.userCode = userCode;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getUserPassword() {
-		return userPassword;
-	}
-
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
-
-	public Integer getGender() {
-		return gender;
-	}
-
-	public void setGender(Integer gender) {
-		this.gender = gender;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public Integer getUserRole() {
-		return userRole;
-	}
-
-	public void setUserRole(Integer userRole) {
-		this.userRole = userRole;
-	}
-
-	public Integer getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(Integer createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public Integer getModifyBy() {
-		return modifyBy;
-	}
-
-	public void setModifyBy(Integer modifyBy) {
-		this.modifyBy = modifyBy;
-	}
-
-	public Date getModifyDate() {
-		return modifyDate;
-	}
-
-	public void setModifyDate(Date modifyDate) {
-		this.modifyDate = modifyDate;
-	}
+	
 
 }
