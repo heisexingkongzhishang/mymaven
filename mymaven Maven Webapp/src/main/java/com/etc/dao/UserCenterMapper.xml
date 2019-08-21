@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.etc.dao.UserMapper">
+<mapper namespace="com.etc.dao.UserCenterMapper">
 
-<select id="collectionTopic" resultType="java.lang.Integer">
-select collectionTopics_id from collectionTopics
+<select id="collectionTopic" resultType="com.etc.entity.Topics">
+select * from collectiontopics,topics
 <where>
-collectionTopics_userId=#{user_id} limit 0,1
+collectionTopics_topicsId=topics_id and collectionTopics_userId=#{user_id} limit 0,1
 </where>
 </select>
 
 <select id="collectionVideo" resultType="java.lang.Integer">
-select collectionVideo_id from collectionVideo
+select collectionVideo_id from collectionvideo
 <where>
 collectionVideo_userId=#{user_id} limit 0,1
 </where>
 </select>
 
-<select id="myTopic" resultType="java.lang.Integer">
-select topics_id from topics
+<select id="myTopic" resultType="com.etc.entity.Topics">
+select * from topics
 <where>
 topics_user=#{user_id} limit 0,1
 </where>
@@ -30,5 +30,12 @@ select video_id from video
 video_user=#{user_id} limit 0,1
 </where>
 </select>
+
+<update id="userUpdate">
+update user set user_name=#{1},user_sex=#{2}
+<where>
+user_id=#{0}
+</where>
+</update>
 
 </mapper>
