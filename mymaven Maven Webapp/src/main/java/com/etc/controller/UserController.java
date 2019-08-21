@@ -21,15 +21,20 @@ public class UserController {
 	/** 默认进入登录视图 */
 	@RequestMapping("/index.html")
 	public String index() {
-		return "login";
+		return "home/index";
+	}
+	
+	@RequestMapping("/question.html")
+	public String questionsIndex() {
+		return "questions/index";
 	}
 
 	/** 登录控制器 */
 	@RequestMapping("/user/login.html")
-	public String login(@RequestParam("userCode") String userCode, @RequestParam("userPassword") String userPassword,
+	public String login(@RequestParam("user_phone") String user_phone, @RequestParam("user_password") String user_password,
 			HttpSession session, HttpServletRequest request) {
 
-		User user = userService.login(userCode, userPassword);
+		User user = userService.login(user_phone, user_password);
 		if (user != null) {// 登录成功
 			// 将用户信息保存到session
 			session.setAttribute(Constants.USER_SESSION, user);
@@ -42,7 +47,7 @@ public class UserController {
 
 		} else {// 登录失败
 			request.setAttribute("error", "账号密码不正确！");
-			return "login";
+			return "home/index";
 		}
 	}
 

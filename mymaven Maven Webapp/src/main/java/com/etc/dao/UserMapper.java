@@ -19,14 +19,14 @@ public interface UserMapper {
 	public int add(User user) throws Exception;
 
 	/**
-	 * 通过userCode获取User
+	 * 通过user_phone获取User
 	 * 
 	 * @param connection
-	 * @param userCode
+	 * @param user_phone
 	 * @return
 	 * @throws Exception
 	 */
-	public User getLoginUser(@Param("userCode") String userCode)
+	public User getUserByPhone(@Param("user_phone") String user_phone)
 			throws Exception;
 
 	/**

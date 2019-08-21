@@ -45,16 +45,16 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional(propagation=Propagation.SUPPORTS)
-	public User login(String userCode, String userPassword) {
+	public User login(String user_phone, String user_password) {
 		User user = null;
 		try {
-			user = userMapper.getLoginUser(userCode);
+			user = userMapper.getUserByPhone(user_phone);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// 匹配密码
 		if (null != user) {
-			if (!user.getUser_password().equals(userPassword))
+			if (!user.getUser_password().equals(user_password))
 				user = null;
 		}
 		return user;
@@ -75,10 +75,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User selectUserCodeExist(String userCode) {
+	public User selectUserCodeExist(String user_phone) {
 		User user = null;
 		try {
-			user = userMapper.getLoginUser(userCode);
+			user = userMapper.getUserByPhone(user_phone);
 		} catch (Exception e) {
 			e.printStackTrace();
 			user = null;

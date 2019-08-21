@@ -72,6 +72,10 @@
 	</bean>
 
 	<!-- 静态资源处理 -->
-	<mvc:resources location="/statics/" mapping="/statics/**" />
+<!-- 	<mvc:resources location="/static/" mapping="/static/**" /> -->
+ 	<mvc:resources location="/WEB-INF/jsp/static/" mapping="/static/**"/>
+    <!-- <mvc:resources location="/WEB-INF/jsp/app/css/" mapping="/app/css/**"/> -->
+    <mvc:resources location="/WEB-INF/jsp/app/" mapping="/app/**"/>
+    <mvc:resources location="/WEB-INF/jsp/img/" mapping="/img/**"/>
 
 </beans>	

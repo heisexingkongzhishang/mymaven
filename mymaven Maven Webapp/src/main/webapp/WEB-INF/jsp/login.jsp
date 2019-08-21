@@ -15,8 +15,8 @@
 
 <body>
 	<form action="${pageContext.request.contextPath}/user/login.html" method="post">
-		<p>账号：<input type="text" name="userCode"></p>
-		<p>密码：<input type="password" name="userPassword"></p>
+		<p>账号：<input type="text" name="user_phone"></p>
+		<p>密码：<input type="password" name="user_password"></p>
 		<p>
 			<input type="submit" value="登录">
 		</p>

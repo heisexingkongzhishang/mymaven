@@ -8,18 +8,21 @@ public class Topicreply {
 	private Topics reply_topics;
 	private User reply_user;
 	private String reply_context;
+	private Integer reply_floor;
 	private Date reply_time;
 	
 	public Topicreply(){
 		
 	}
 
-	public Topicreply(Integer reply_id, Topics reply_topics, User reply_user, String reply_context, Date reply_time) {
+	public Topicreply(Integer reply_id, Topics reply_topics, User reply_user, String reply_context, Integer reply_floor,
+			Date reply_time) {
 		super();
 		this.reply_id = reply_id;
 		this.reply_topics = reply_topics;
 		this.reply_user = reply_user;
 		this.reply_context = reply_context;
+		this.reply_floor = reply_floor;
 		this.reply_time = reply_time;
 	}
 
@@ -55,6 +58,14 @@ public class Topicreply {
 		this.reply_context = reply_context;
 	}
 
+	public Integer getReply_floor() {
+		return reply_floor;
+	}
+
+	public void setReply_floor(Integer reply_floor) {
+		this.reply_floor = reply_floor;
+	}
+
 	public Date getReply_time() {
 		return reply_time;
 	}
@@ -62,6 +73,7 @@ public class Topicreply {
 	public void setReply_time(Date reply_time) {
 		this.reply_time = reply_time;
 	}
+
 	
 	
 }

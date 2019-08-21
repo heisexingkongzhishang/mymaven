@@ -4,11 +4,11 @@
 <mapper namespace="com.etc.dao.UserMapper">
 
 	<!-- 根据用户编码查询用户 -->
-	<select id="getLoginUser" resultType="User">
-		SELECT * FROM smbms_user u
+	<select id="getUserByPhone" parameterType="java.lang.String" resultType="User">
+		SELECT * FROM user u
 		<where>
-			<if test="userCode!=null">
-				AND u.userCode=#{userCode}
+			<if test="user_phone!=null">
+				AND u.user_phone=#{user_phone}
 			</if>
 		</where>
 	</select>
