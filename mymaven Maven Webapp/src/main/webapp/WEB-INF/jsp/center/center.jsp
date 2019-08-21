@@ -16,7 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta charset="utf-8">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -25,10 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body>
 		<a href="#"><img src="C:\Users\Administrator\Desktop\wanjiang.jsp" alt="加载不出来" style="width: 100px;height: 100px;"/></a><br /><!--我是头像 -->
 		
-		<form action="${pageContext.request.contextPath}/center/update.html" method="post">
 		<input type="text" name="name" id="" value="我是昵称" />&nbsp;<input type="text" name="sex" id="" value="我是性别" />
-		<input type="submit" value="修改资料"/>
-		</form>
+		<input type="button" value="修改资料" onclick="updateAttr"/>
 		<h2>个人收藏</h2>
 		<div style="border: dashed;width: 100px;height: 100px;float: left;"><a href="#">我是帖子收藏</a></div><div style="border: dashed;width: 100px;height: 100px;float: left;"><a href="#">我是视频收藏</a></div>
 		<h2 style="clear: both;">个人发布</h2>
@@ -38,9 +35,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script>
 	function firstinit()
 	{
-		$.getJSON("/center/init",{id:9},function(data){
-			
+		$.ajax({
+			type:"post",
+			url:"/center/init",
+			contentType:"application/json;charset=utf-8",
+			data:'{"id":9}',
+			success:function(data)
+			{
+				$("name").attr("value",data.user_name);
+				$("sex").attr("sex",data.user_sex);
+			}
 		});
+	}
+	
+	function updateAttr()
+	{
+		var name=$("name").val();
+		var sex=$("sex").val();
+		$.ajax({
+			type:"post",
+			url:"/center/update.html",
+			contentType:"application/json;charset=utf-8",
+			data:'{"id":9,"name":name,"sex":sex}',
+			success:function(data)
+			{
+				if(data==1)
+					alert("修改成功");
+				else alert("修改失败");
+			}
+		});
+		firstinit();
 	}
 	
 </script>

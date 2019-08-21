@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.etc.dao.UserCenterMapper;
+import com.etc.entity.User;
 import com.etc.service.UserCenterService;
 
 @Transactional
@@ -22,5 +23,13 @@ public class UserCenterServiceImpl implements UserCenterService {
 		// TODO Auto-generated method stub
 		return userCenterMapper.userUpdate(user_id,user_name,user_sex)>0;
 	}
+
+	@Override
+	public User userQuery(Integer user_id) {
+		// TODO Auto-generated method stub
+		return userCenterMapper.userQuery(user_id);
+	}
+	
+	
 
 }

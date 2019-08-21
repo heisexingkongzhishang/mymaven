@@ -32,10 +32,19 @@ video_user=#{user_id} limit 0,1
 </select>
 
 <update id="userUpdate">
-update user set user_name=#{1},user_sex=#{2}
+update user set 
+user_name=<if test="#{1}!=null">#{1}</if>,
+user_sex=<if test="#{2}!=null">#{2}</if>
 <where>
 user_id=#{0}
 </where>
 </update>
+
+<select id="userQuery" parameterType="java.lang.Integer" resultMap="com.etc.entity.User">
+select * from user
+<where>
+user_id=#{user_id}
+</where>
+</select>
 
 </mapper>
