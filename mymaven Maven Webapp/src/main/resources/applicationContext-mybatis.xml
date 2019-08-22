@@ -27,7 +27,7 @@
 		<property name="username" value="${username}" />
 		<property name="password" value="${password}" />
 		<!-- 关闭事务自动提交 -->
-		<property name="defaultAutoCommit" value="false" />
+		<property name="defaultAutoCommit" value="true" />
 	</bean>
 
 

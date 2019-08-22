@@ -18,7 +18,6 @@ public class UserCenterServiceImpl implements UserCenterService {
 	private UserCenterMapper userCenterMapper;
 	
 	@Override
-	@Transactional(propagation=Propagation.SUPPORTS)
 	public boolean userUpdate(Integer user_id,String user_name,String user_sex) {
 		// TODO Auto-generated method stub
 		return userCenterMapper.userUpdate(user_id,user_name,user_sex)>0;

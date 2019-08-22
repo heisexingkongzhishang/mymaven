@@ -40,7 +40,7 @@ user_id=#{0}
 </where>
 </update>
 
-<select id="userQuery" parameterType="java.lang.Integer" resultMap="com.etc.entity.User">
+<select id="userQuery" parameterType="java.lang.Integer" resultType="com.etc.entity.User">
 select * from user
 <where>
 user_id=#{user_id}

@@ -40,10 +40,11 @@ public class UserCenterController {
 		out.close();
 	}
 	
-	@RequestMapping("/center/init")
+	@RequestMapping("/center/init.html")
 	@ResponseBody
 	public User userQuery(Integer id,HttpServletResponse response) throws IOException
 	{
+		System.out.println("id:"+id);
 		User user=userCenterService.userQuery(id);
 		return user;
 	}
@@ -54,9 +55,9 @@ public class UserCenterController {
 		return "center/center";
 	}
 	
-	@RequestMapping("/center/init")
-	public String getNameAndSex()
-	{
-		return "";
-	}
+//	@RequestMapping("/center/init")
+//	public String getNameAndSex()
+//	{
+//		return "";
+//	}
 }

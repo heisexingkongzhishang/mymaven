@@ -42,7 +42,7 @@ public class UserController {
 
 		} else {// µÇÂ¼Ê§°Ü
 			request.setAttribute("error", "ÕËºÅÃÜÂë²»ÕıÈ·£¡");
-			return "login";
+			return "center/center";
 		}
 	}
 

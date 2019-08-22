@@ -52,9 +52,8 @@
 
 	</bean>
 
-	<!-- 配置拦截器 -->
+	<!-- 配置系统拦截器 -->
 	<mvc:interceptors>
-		<!-- 系统权限拦截器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/sys/**" />
 			<bean class="com.etc.interceptor.SysInterceptor" />
@@ -72,6 +71,8 @@
 	</bean>
 
 	<!-- 静态资源处理 -->
-	<mvc:resources location="/statics/" mapping="/statics/**" />
-
+	<!-- <mvc:resources location="/statics/" mapping="/statics/**" /> -->
+	<mvc:resources location="/WEB-INF/jsp/static/" mapping="/static/**"/>
+    <mvc:resources location="/WEB-INF/jsp/app/" mapping="/app/**"/>
+    <mvc:resources location="/WEB-INF/jsp/img/" mapping="/img/**"/>
 </beans>	
