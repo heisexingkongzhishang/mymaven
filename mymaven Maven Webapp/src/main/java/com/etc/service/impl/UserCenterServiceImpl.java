@@ -1,5 +1,7 @@
 package com.etc.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -33,6 +35,18 @@ public class UserCenterServiceImpl implements UserCenterService {
 	public Integer userPicUpdate(Integer user_id, String user_picture) {
 		// TODO Auto-generated method stub
 		return userCenterMapper.userPicUpdate(user_id, user_picture);
+	}
+
+	@Override
+	public List<String> myTopic(Integer user_id) {
+		// TODO Auto-generated method stub
+		return userCenterMapper.myTopic(user_id);
+	}
+
+	@Override
+	public List<String> collectionTopic(Integer id) {
+		// TODO Auto-generated method stub
+		return userCenterMapper.collectionTopic(id);
 	}
 	
 	

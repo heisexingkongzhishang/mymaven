@@ -1,5 +1,7 @@
 package com.etc.service;
 
+import java.util.List;
+
 import com.etc.entity.User;
 
 public interface UserCenterService {
@@ -10,4 +12,8 @@ public interface UserCenterService {
 	public User userQuery(Integer user_id);
 	
 	public Integer userPicUpdate(Integer user_id,String user_picture);
+	
+	public List<String> myTopic(Integer user_id);
+	
+	public List<String> collectionTopic(Integer id);
 }

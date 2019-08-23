@@ -19,20 +19,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<style>
+	.div_scroll {
+    	height: 200px;
+    	overflow-y: scroll;
+    	overflow-x: hidden;
+	}
+	</style>
   </head>
 	<body>
+		
+		<a href="javascript:void(0)"><img src="" alt="暂无头像" style="width: 200px;height: 200px; border-radius: 50%" id="pic"/></a><br /><!--我是头像 -->
 		<form method="post" enctype="multipart/form-data" id="form_pic">
-		选择照片<input type="file" name="myfile"><br/>
+		选择照片<input type="file" name="myfile">
 		<input type="submit" value="提交照片">
 		</form>
-		<a href="javascript:void(0)"><img src="" style="width: 100px;height: 100px;" id="pic"/></a><br /><!--我是头像 -->
-		
-		<input type="text" name="name" id="name" value="我是昵称" />&nbsp;<input type="text" name="sex" id="sex" value="我是性别" />
+		<input type="text" name="name" id="name" value="我是昵称" style="clear:both;"/>&nbsp;<input type="text" name="sex" id="sex" value="我是性别" />
 		<input type="button" value="修改资料" onclick="updateAttr()"/>
 		<h2>帖子专区</h2>
 		<h3>我的帖子</h3>
+		<div id="mytopics" class="div_scroll"></div>
 		<h3>我的收藏</h3>
+		<div id="mycollectiontopics" class="div_scroll"></div>
 		<h2>视频专区</h2>
 		<h3>我的视频</h3>
 		<h3>我的收藏</h3>
@@ -40,10 +48,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script src="${pageContext.request.contextPath}/static/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-	var id=9;
+	var id=10;
 	$(document).ready(function(){
 		$("#form_pic").attr("action","${pageContext.request.contextPath}/uploadPic.html?id="+id);
 		firstinit();
+		mytopics();
 	});
 	
 	
@@ -56,6 +65,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$("#pic").attr("src","${pageContext.request.contextPath}/center/pic/"+data.user_picture);
 			});
 	};
+	
+	function mytopics()
+	{
+		$.getJSON("${pageContext.request.contextPath}/center/mytopics.html",{id:id},function(data){
+			str="<table>";
+			for(var i=0;i<data.length;i++)
+			{
+				str+="<tr><td><a href='#'>"+data[i]+"</a></td></tr>";
+			}
+			str+="</table>";
+			$("#mytopics").html(str);
+		});
+		$.getJSON("${pageContext.request.contextPath}/center/mycollectiontopics.html",{id:2},function(data){
+			str="<table>";
+			for(var i=0;i<data.length;i++)
+			{
+				str+="<tr><td><a href='#'>"+data[i]+"</a></td></tr>";
+			}
+			str+="</table>";
+			$("#mycollectiontopics").html(str);
+		});
+	}
 	
 	function updateAttr()
 	{

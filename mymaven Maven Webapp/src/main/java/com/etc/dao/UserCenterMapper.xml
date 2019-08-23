@@ -3,10 +3,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etc.dao.UserCenterMapper">
 
-<select id="collectionTopic" resultType="com.etc.entity.Topics">
-select * from collectiontopics,topics
+<select id="collectionTopic" resultType="java.lang.String">
+select topics_title from collectiontopics,topics
 <where>
-collectionTopics_topicsId=topics_id and collectionTopics_userId=#{user_id} limit 0,1
+collectionTopics_topicsId=topics_id and collectionTopics_userId=#{user_id}
 </where>
 </select>
 
@@ -17,10 +17,10 @@ collectionVideo_userId=#{user_id} limit 0,1
 </where>
 </select>
 
-<select id="myTopic" resultType="com.etc.entity.Topics">
-select * from topics
+<select id="myTopic" resultType="java.lang.String">
+select topics_title from topics
 <where>
-topics_user=#{user_id} limit 0,1
+topics_user=#{user_id}
 </where>
 </select>
 
@@ -53,5 +53,6 @@ update user set user_picture=#{1}
 user_id=#{0}
 </where>
 </update>
+
 
 </mapper>

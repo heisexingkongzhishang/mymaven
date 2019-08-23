@@ -3,8 +3,10 @@ package com.etc.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.annotation.Resource;
+import javax.management.Query;
 import javax.naming.spi.DirStateFactory.Result;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.etc.entity.Topics;
 import com.etc.entity.User;
 import com.etc.service.UserCenterService;
 
@@ -52,6 +55,28 @@ public class UserCenterController {
 		System.out.println("id:"+id);
 		User user=userCenterService.userQuery(id);
 		return user;
+	}
+	
+	@RequestMapping("/center/mytopics.html")
+	@ResponseBody
+	public List<String> queryTopicsTitle(Integer id)
+	{
+		List<String> list = userCenterService.myTopic(id);
+		for (String string : list) {
+			System.out.println(string);
+		}
+		return list;
+	}
+	
+	@RequestMapping("/center/mycollectiontopics.html")
+	@ResponseBody
+	public List<String> queryCollectionTopicsTitle(Integer id)
+	{
+		List<String> list = userCenterService.collectionTopic(id);
+		for (String string : list) {
+			System.out.println(string);
+		}
+		return list;
 	}
 	
 	@RequestMapping("/mymaven/center/center")
