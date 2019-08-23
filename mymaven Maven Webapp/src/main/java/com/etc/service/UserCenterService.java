@@ -8,4 +8,6 @@ public interface UserCenterService {
 	
 	//查询用户信息
 	public User userQuery(Integer user_id);
+	
+	public Integer userPicUpdate(Integer user_id,String user_picture);
 }

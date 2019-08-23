@@ -15,4 +15,6 @@ public interface UserCenterMapper {
 	public Integer userUpdate(Integer user_id,String user_name,String user_sex);
 	
 	public User userQuery(Integer user_id);
+	
+	public Integer userPicUpdate(Integer user_id,String user_picture);
 }

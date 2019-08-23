@@ -28,6 +28,12 @@ public class UserCenterServiceImpl implements UserCenterService {
 		// TODO Auto-generated method stub
 		return userCenterMapper.userQuery(user_id);
 	}
+
+	@Override
+	public Integer userPicUpdate(Integer user_id, String user_picture) {
+		// TODO Auto-generated method stub
+		return userCenterMapper.userPicUpdate(user_id, user_picture);
+	}
 	
 	
 

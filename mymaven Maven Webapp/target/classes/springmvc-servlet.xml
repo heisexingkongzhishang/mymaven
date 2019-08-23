@@ -75,4 +75,5 @@
 	<mvc:resources location="/WEB-INF/jsp/static/" mapping="/static/**"/>
     <mvc:resources location="/WEB-INF/jsp/app/" mapping="/app/**"/>
     <mvc:resources location="/WEB-INF/jsp/img/" mapping="/img/**"/>
+    <mvc:resources location="/WEB-INF/jsp/center/" mapping="/center/**"/>
 </beans>	
