@@ -2,6 +2,8 @@
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.etc.entity.User;
 
 
@@ -20,6 +22,17 @@ public interface UserService {
 	 * @return
 	 */
 	public User login(String user_phone,String user_password);
+	
+	/**
+	 * 通过user_id获取User
+	 * 
+	 * @param connection
+	 * @param user_phone
+	 * @return
+	 * @throws Exception
+	 */
+	public User queryUserById(@Param("user_id") Integer user_id)
+			throws Exception;
 	
 	/**
 	 * 根据条件查询用户列表

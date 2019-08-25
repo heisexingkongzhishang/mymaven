@@ -73,9 +73,11 @@
 
 	<!-- 静态资源处理 -->
 <!-- 	<mvc:resources location="/static/" mapping="/static/**" /> -->
- 	<mvc:resources location="/WEB-INF/jsp/static/" mapping="/static/**"/>
+  	<mvc:resources location="/WEB-INF/jsp/static/" mapping="/static/**"/>
     <!-- <mvc:resources location="/WEB-INF/jsp/app/css/" mapping="/app/css/**"/> -->
     <mvc:resources location="/WEB-INF/jsp/app/" mapping="/app/**"/>
     <mvc:resources location="/WEB-INF/jsp/img/" mapping="/img/**"/>
-
+    <mvc:resources location="/WEB-INF/jsp/imgs/" mapping="/imgs/**"/>
+	<mvc:resources location="/ueditor1/" mapping="/ueditor1/**"/>
+	
 </beans>	

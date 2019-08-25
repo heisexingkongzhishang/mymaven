@@ -149,4 +149,12 @@ public class UserServiceImpl implements UserService {
 		return count;
 	}
 
+	@Override
+	public User queryUserById(Integer user_id) throws Exception {
+		if(user_id != null && user_id >= 0){
+			return userMapper.queryUserById(user_id);
+		}
+		return null;
+	}
+
 }

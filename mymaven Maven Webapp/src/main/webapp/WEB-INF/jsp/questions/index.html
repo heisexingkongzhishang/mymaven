@@ -158,15 +158,15 @@
             
     <div class="content">
         
-        <ul class="nav nav-tabs question-types" role="tablist">
+        <ul name="questionTitle" class="nav nav-tabs question-types" role="tablist">
             
                 
-                <li role="presentation" class="active">
+                <!-- <li role="presentation" class="active">
                     <a href="#all" aria-controls="all" role="tab" toggle="tab">全部</a>
                 </li>
                 
                 <li role="presentation" >
-                    <a href="#course" aria-controls="course" role="tab" toggle="tab">课程问答</a>
+                    <a href="#course" aria-controls="course" role="tab" toggle="tab">资源分享</a>
                 </li>
                 
                 <li role="presentation" >
@@ -174,26 +174,26 @@
                 </li>
                 
                 <li role="presentation" >
-                    <a href="#sharing" aria-controls="sharing" role="tab" toggle="tab">技术分享</a>
+                    <a href="#sharing" aria-controls="sharing" role="tab" toggle="tab">易物交易</a>
                 </li>
                 
                 <li role="presentation" >
-                    <a href="#labreport" aria-controls="labreport" role="tab" toggle="tab">实验报告</a>
+                    <a href="#labreport" aria-controls="labreport" role="tab" toggle="tab">社团招聘</a>
                 </li>
                 
                 <li role="presentation" >
                     <a href="#notice" aria-controls="notice" role="tab" toggle="tab">站内公告</a>
-                </li>
+                </li> -->
                 
             
 
-            <div class="question-sort">
+            <!-- <div class="question-sort">
                 <a class="active" href="#newest" >最新</a></li>
                 /
                 <a  href="#hot" >最热</a></li>
                 /
                 <a  href="#unanswered" >未回复</a></li>
-            </div>
+            </div> -->
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active">
@@ -1796,7 +1796,7 @@
     <script src="${pageContext.request.contextPath}/static/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/bootstrap-table/1.11.0/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
-    <script src="../static/ravenjs/3.7.0/raven.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/ravenjs/3.7.0/raven.min.js"></script>
     <script>
         Raven.config('https://bc3878b7ed0a4468a65390bd79e6e73f@sentry.shiyanlou.com/5', {
             release: '3.12.13'
@@ -1903,6 +1903,33 @@
     </div>
 </div>
 
+
+<script>
+
+	$(document).ready(function(){
+		
+		$getJSON("questions/queryAllTopicType",function(data){
+			var str = "<li role='presentation' class='active'>"+
+                         	"<a href='#' aria-controls='all' role='tab' toggle='tab'>全部</a>"+
+               		   "</li>";
+			for(var i = 0; i < data.length; i++){
+				str += "<li role='presentation' >"+
+                    		"<a href='#' aria-controls='course' role='tab' toggle='tab'>" + data.topicType_name + "</a>"+
+                		"</li>";
+			}
+			str += "<div class='question-sort'>"+
+                		"<a class='active' href='#newest' >最新</a></li>/"+
+                		"<a  href='#hot' >最热</a></li>/"+
+                		"<a  href='#unanswered' >未回复</a></li>"+
+            		"</div>";
+			$("ul[name='questionTitle']").html(str);
+		});
+		
+		
+	});
+
+        
+</script>
             
         
 	

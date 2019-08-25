@@ -26,7 +26,18 @@ public interface UserMapper {
 	 * @return
 	 * @throws Exception
 	 */
-	public User getUserByPhone(@Param("user_phone") String user_phone)
+	public User getUserByPhone(String user_phone)
+			throws Exception;
+	
+	/**
+	 * 通过user_id获取User
+	 * 
+	 * @param connection
+	 * @param user_phone
+	 * @return
+	 * @throws Exception
+	 */
+	public User queryUserById(Integer user_id)
 			throws Exception;
 
 	/**
