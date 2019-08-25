@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.TopicTypeMapper">
+
+
+	<!-- 查询所有帖子类型 -->
+	<select id="queryAllTopictype"  resultType="Topictype">
+		select * from topictype
+	</select>
+	
+	<!-- 根据帖子类型ID获取帖子类型 -->
+	<select id="queryTopictypeBytypeId" parameterType="java.lang.Integer"  resultType="Topictype">
+		select * from topictype where topicType_id = #{0}
+	</select>
+
+</mapper>

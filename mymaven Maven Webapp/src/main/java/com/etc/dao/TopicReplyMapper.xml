@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.TopicReplyMapper">
+
+	<resultMap type="Topicreply" id="mytopicsreply">
+	<id property="reply_id" column="reply_id"/>
+	<!-- <association property="reply_topics" javaType="Topics" select="com.etc.dao.TopicsMapper.queryTopicsByTopicsId" column="reply_topics"></association> -->
+	<association property="reply_user" javaType="User" select="com.etc.dao.UserMapper.queryUserById" column="reply_user"></association>
+	</resultMap>
+
+	
+
+
+
+	<!-- 根据帖子ID查询所有帖子回复 -->
+	<select id="queryTopicreplyByTopicsId" parameterType="java.lang.Integer"  resultMap="mytopicsreply">
+		select * from topicreply where reply_topics = #{0}
+	</select>
+	
+	<!-- 根据帖子id获取帖子回复按时间降序 -->
+	<select id="queryTopicreplyOrderTime" parameterType="java.lang.Integer"  resultType="Topicreply">
+		select * from topicreply where topics_type=#{0} order by reply_time desc
+	</select>
+	
+	<!-- 根据帖子ID查询所有帖子回复 -->
+	<select id="queryReplyByReplyId" parameterType="java.lang.Integer"  resultType="Topicreply">
+		select * from topicreply where reply_id = #{0}
+	</select>
+	
+</mapper>

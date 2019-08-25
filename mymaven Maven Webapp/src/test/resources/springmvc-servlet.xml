@@ -16,6 +16,9 @@
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
 		<property name="favorPathExtension" value="false" />
 	</bean>
+	
+	<mvc:default-servlet-handler/>
+	
 
 	<!-- 设置json转换器 -->
 	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

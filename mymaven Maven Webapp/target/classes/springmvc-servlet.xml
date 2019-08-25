@@ -8,7 +8,8 @@
 
 	<!-- 采用文件扫描方式配置控制器 只扫描控制层 不建议扫描其他层 -->
 	<context:component-scan base-package="com.etc.controller" />
-
+	
+	<!-- <mvc:default-servlet-handler/> -->
 
 	<mvc:annotation-driven
 		content-negotiation-manager="contentNegotiationManager" />

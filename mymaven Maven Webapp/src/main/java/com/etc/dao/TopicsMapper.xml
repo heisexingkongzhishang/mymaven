@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.TopicsMapper">
+
+
+ 	<resultMap type="Topics" id="mytopics">
+    <id column="topics_id" property="topics_id"/>
+    <!-- <result property="topics_type" column="topics_type" /> -->
+    <!-- <result property="topics_user" column="topics_user" /> -->
+    <association property="topics_type" javaType="Topictype" select="com.etc.dao.TopicTypeMapper.queryTopictypeBytypeId" column="topics_type"></association>
+	<association property="topics_user" javaType="User" select="com.etc.dao.UserMapper.queryUserById" column="topics_user"></association>
+	<collection property="topic_replies" select="com.etc.dao.TopicReplyMapper.queryTopicreplyByTopicsId" column="topics_id"></collection>
+	</resultMap>
+
+
+
+
+	<!-- 查询所有帖子 -->
+	<select id="queryAllTopics"  resultType="Topics">
+		select * from topics
+	</select>
+	
+	<!-- 根据帖子id获取帖子 -->
+	<select id="queryTopicsByTopicsId" parameterType="java.lang.Integer" resultMap="mytopics">
+		select * from topics where topics_id = #{0}
+	</select>
+	
+	<!-- 根据帖子类型获取帖子 -->
+	<select id="queryTopicsByTypeId" parameterType="java.lang.Integer" resultMap="mytopics">
+		select * from topics
+		<where>
+			<if test="_parameter!=null">
+				and topics_type = #{topicsType_id}
+			</if>
+		</where>
+		order by topics_time desc
+	</select>
+
+	<!-- 获取某类型帖子数量 -->
+	<select id="getCounts" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select count(*) from topics
+		<where>
+			<if test="_parameter!=null">
+				and topics_type = #{topicsType_id}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 获取点击量和回复量前十的帖子 -->
+	<select id="getTopFive" parameterType="java.lang.Integer" resultType="Topics">
+		select * from topics
+		<where>
+			<if test="_parameter!=null">
+				and topics_type = #{topicsType_id}
+			</if>
+		</where>
+		order by topics_hits+topics_replys desc
+	</select>
+
+
+</mapper>

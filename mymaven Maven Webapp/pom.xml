@@ -193,18 +193,28 @@
 		<dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.6</version>
+            <version>1.9</version>
         </dependency>
         <dependency>
-    		<groupId>com.baidu.ueditor</groupId>
-    		<artifactId>ueditor</artifactId>
-    		<version>1.1.1</version>
+            <groupId>com.baidu</groupId>
+            <artifactId>ueditor</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.json</groupId>
+            <artifactId>json</artifactId>
+            <version>1.1</version>
+        </dependency>
+<!--         <dependency>
+		<groupId>com.github.qiuxiaoj</groupId>
+			<artifactId>ueditor</artifactId>
+			<version>1.1.1</version>
 		</dependency>
         <dependency>
-    		<groupId>com.baidu.ueditor</groupId>
+    		<groupId>org.json</groupId>
     		<artifactId>json</artifactId>
-    		<version>1.0</version>
-		</dependency>
+    		<version>20170516</version>
+		</dependency> -->
         
 	</dependencies>
 	    
