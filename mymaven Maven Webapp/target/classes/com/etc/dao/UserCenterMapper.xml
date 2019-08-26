@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.UserCenterMapper">
+
+<select id="collectionTopic" resultType="java.lang.String">
+select topics_title from collectiontopics,topics
+<where>
+collectionTopics_topicsId=topics_id and collectionTopics_userId=#{user_id}
+</where>
+</select>
+
+<select id="collectionVideo" resultType="java.lang.Integer">
+select collectionVideo_id from collectionvideo
+<where>
+collectionVideo_userId=#{user_id} limit 0,1
+</where>
+</select>
+
+<select id="myTopic" resultType="java.lang.String">
+select topics_title from topics
+<where>
+topics_user=#{user_id}
+</where>
+</select>
+
+<select id="myVideo" resultType="java.lang.Integer">
+select video_id from video
+<where>
+video_user=#{user_id} limit 0,1
+</where>
+</select>
+
+<update id="userUpdate">
+update user set 
+<if test="#{1}!=null">user_name=#{1},</if>
+<if test="#{2}!=null">user_sex=#{2}</if>
+<where>
+user_id=#{0}
+</where>
+</update>
+
+<select id="userQuery" parameterType="java.lang.Integer" resultType="com.etc.entity.User">
+select * from user
+<where>
+user_id=#{user_id}
+</where>
+</select>
+
+<update id="userPicUpdate">
+update user set user_picture=#{1}
+<where>
+user_id=#{0}
+</where>
+</update>
+
+
+</mapper>

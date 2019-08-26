@@ -65,6 +65,7 @@ public class User {
 				+ ", user_password=" + user_password + ", user_sex=" + user_sex + ", user_picture=" + user_picture
 				+ "]";
 	}
-
+	
+	
 
 }

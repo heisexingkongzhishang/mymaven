@@ -11,6 +11,7 @@
 
 	<typeAliases>
 		<package name="com.etc.entity" />
+		<package name="com.etc.pojo" />
 	</typeAliases>
 
 </configuration>

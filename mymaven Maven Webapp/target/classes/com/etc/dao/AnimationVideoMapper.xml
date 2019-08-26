@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.AnimationVideoMapper">
+
+	<!-- 显示动漫类型 -->
+	<select id="showAnimationType" resultType="VideoType">
+		select * from videotype
+	</select>
+
+	<select id="AniamtionCountByfuzzy" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select COUNT(v1.video_id) totalCount from video v1,videotype v2 where v1.videotype_id=v2.videotype_id and v2.videotype_name like concat('%',#{fuuzy},'%')
+	</select>
+	
+	<select id="AnimationByPage" resultType="Video" >
+		select * from video v1,videotype v2 where v1.videotype_id=v2.videotype_id and v2.videotype_name like concat('%',#{0},'%') limit #{1},#{2}
+	</select>
+	
+	<select id="AnimationVideoById" parameterType="java.lang.Integer" resultType="Video">
+		select * from video where video_id = #{video_id}
+	</select>
+	
+	<insert id="AnimationVideoUpload" parameterType="VideoUpload">
+		insert into video(video_name,video_userId,video_introduce,video_path,video_hits,video_isReported,video_nums,videotype_id,video_time) VALUES(#{video_name},#{video_userId},#{video_introduce},#{video_path},#{video_hits},#{video_isReported},#{video_nums},#{videotype_id},#{video_time})
+	</insert>
+</mapper>

@@ -8,7 +8,7 @@ public class PageSupport {
 	private int totalCount = 0;
 	
 	//页面容量
-	private int pageSize = 0;
+	private int pageSize = 15;
 	
 	//总页数-totalCount/pageSize（+1）
 	private int totalPageCount = 1;
@@ -53,12 +53,17 @@ public class PageSupport {
 	}
 	
 	public void setTotalPageCountByRs(){
-		if(this.totalCount % this.pageSize == 0){
-			this.totalPageCount = this.totalCount / this.pageSize;
-		}else if(this.totalCount % this.pageSize > 0){
-			this.totalPageCount = this.totalCount / this.pageSize + 1;
-		}else{
+		if(this.pageSize == 0){
 			this.totalPageCount = 0;
+		}
+		else{
+			if(this.totalCount % this.pageSize == 0){
+				this.totalPageCount = this.totalCount / this.pageSize;
+			}else if(this.totalCount % this.pageSize > 0){
+				this.totalPageCount = this.totalCount / this.pageSize + 1;
+			}else{
+				this.totalPageCount = 0;
+			}
 		}
 	}
 	

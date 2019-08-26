@@ -11,7 +11,7 @@
 		   http://www.springframework.org/schema/tx 
 		   http://www.springframework.org/schema/tx/spring-tx-4.0.xsd        
            ">
-
+           
 	<!-- 引入数据库属性文件 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

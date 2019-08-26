@@ -30,7 +30,8 @@ public class UserController {
 			HttpSession session, HttpServletRequest request) {
 
 		User user = userService.login(userCode, userPassword);
-		if (user != null) {// 登录成功
+		return "courses/index";
+/*		if (user != null) {// 登录成功
 			// 将用户信息保存到session
 			session.setAttribute(Constants.USER_SESSION, user);
 			// 跳转到管理后台
@@ -42,10 +43,18 @@ public class UserController {
 
 		} else {// 登录失败
 			request.setAttribute("error", "账号密码不正确！");
-			return "center/center";
-		}
+			return "login";
+		}*/
 	}
 
+	/** 进入ACG首页 */
+	@RequestMapping("ACGHomePage")
+	public String ACGHomePage() {
+		return "courses/index";
+	}
+	
+
+	
 	/** 进入系统后台首页 */
 	@RequestMapping("/sys/user/main.html")
 	public String adminLogin() {

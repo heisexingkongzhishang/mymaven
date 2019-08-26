@@ -19,7 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/app/dest/center/bootstrap.min.css">
 	<style>
 	.div_scroll {
     	height: 200px;
@@ -75,25 +74,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<h2>视频专区</h2>
 		<h3>我的视频</h3>
 		<h3>我的收藏</h3>
-		<div id="example" class="modal hide fade in" style="display: none; ">
-        <div class="modal-header">
-            <a class="close" data-dismiss="modal">×</a>
-            <h3>这是一个模态框标题</h3>
-        </div>
-        <div class="modal-body">
-            <h4>模态框中的文本</h4>
-            <p>你可以在这添加一些文本。</p>
-        </div>
-        <div class="modal-footer">
-            <a href="javascript:void(0)" class="btn btn-success">唤醒活动</a>
-            <a href="javascript:void(0)" class="btn" data-dismiss="modal">关闭</a>
-        </div>
-  	</div>
-
 	</body>
 
 <script src="${pageContext.request.contextPath}/static/jquery/2.2.4/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/app/dest/center/bootstrap.min.js"></script>
 <script type="text/javascript">
 	var id=10;
 	
@@ -118,6 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	function firstinit()//初始化显示信息
 	{
+		alert(id);
 		$.getJSON("${pageContext.request.contextPath}/center/init.html",{id:id},function(data)
 			{
 				$("#name").attr("value",data.user_name);
